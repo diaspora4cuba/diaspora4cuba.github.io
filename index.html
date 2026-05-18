@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diaspora4Cuba</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 60px auto;
+      padding: 32px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2.2rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    form {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea, button {
+      font: inherit;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      background: #111;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    #message {
+      margin-top: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Diaspora4Cuba</h1>
+
+    <p>
+      Esta es una página de prueba para recoger comentarios y correos
+      de personas interesadas en el proyecto.
+    </p>
+
+    <form id="signature-form">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Tu email"
+        required
+      />
+
+      <textarea
+        id="comment"
+        name="comment"
+        placeholder="Tu comentario"
+        required
+      ></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div id="message"></div>
+  </main>
+
+  <script>
+    const form = document.getElementById("signature-form");
+    const message = document.getElementById("message");
+
+    const endpoint = "https://bykqlmcjoatqylmusjav.supabase.co/functions/v1/submit-signature";
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      message.textContent = "Enviando...";
+
+      const email = document.getElementById("email").value.trim();
+      const comment = document.getElementById("comment").value.trim();
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, comment })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || "No se pudo enviar el formulario");
+        }
+
+        message.textContent = "Gracias. Tu comentario fue recibido.";
+        form.reset();
+      } catch (error) {
+        message.textContent = "Error enviando el formulario. Intenta de nuevo.";
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
