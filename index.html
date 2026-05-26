@@ -3,139 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diaspora4Cuba</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      color: #222;
-      margin: 0;
-      padding: 0;
-    }
-
-    main {
-      max-width: 720px;
-      margin: 60px auto;
-      padding: 32px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      margin-top: 0;
-      font-size: 2.2rem;
-    }
-
-    p {
-      line-height: 1.6;
-      font-size: 1.05rem;
-    }
-
-    form {
-      margin-top: 28px;
-      display: grid;
-      gap: 14px;
-    }
-
-    input, textarea, button {
-      font: inherit;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    button {
-      background: #111;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #333;
-    }
-
-    #message {
-      margin-top: 16px;
-      font-weight: bold;
-    }
-  </style>
+  <meta name="description" content="Diaspora4Cuba — Red cívica de la diáspora cubana por la paz, el diálogo y la ayuda concreta." />
+  <title>Diaspora4Cuba — Paz, diálogo y ayuda concreta</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
-
 <body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="header-logo">
+        <img src="assets/logo.jpg" alt="Diaspora4Cuba" width="40" height="40" />
+        <span>Diaspora4Cuba</span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#quienes-somos">Quiénes somos</a>
+        <a href="#iniciativas">Iniciativas</a>
+        <a href="#cartas-por-la-paz">Cartas por la paz</a>
+        <a href="#participar">Participar</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#participar" class="btn btn-primary btn-sm">Súmate</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <h1>Diaspora4Cuba</h1>
 
-    <p>
-      Esta es una página de prueba para recoger comentarios y correos
-      de personas interesadas en el proyecto.
-    </p>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <img src="assets/logo.jpg" alt="Diaspora4Cuba logo" class="hero-logo" />
+        <h1>Diaspora4Cuba</h1>
+        <p class="hero-subtitle">Una red de cubanos y amigos de Cuba para apoyar, conectar y actuar por la paz, el diálogo y la ayuda concreta.</p>
+        <div class="hero-actions">
+          <a href="#participar" class="btn btn-primary">Quiero participar</a>
+          <a href="#iniciativas" class="btn btn-secondary">Ver iniciativas</a>
+        </div>
+      </div>
+    </section>
 
-    <form id="signature-form">
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Tu email"
-        required
-      />
+    <!-- Quiénes somos -->
+    <section class="section" id="quienes-somos">
+      <div class="container">
+        <h2>Quiénes somos</h2>
+        <p class="section-text">Diaspora4Cuba nace para conectar a personas de la diáspora cubana y aliados de Cuba que desean contribuir de forma responsable, pacífica y concreta. Queremos convertir vínculos personales, académicos, profesionales y comunitarios en acciones útiles para Cuba y para su gente.</p>
+        <div class="values-grid">
+          <span class="badge">🕊️ Paz</span>
+          <span class="badge">🤝 Diálogo</span>
+          <span class="badge">💛 Solidaridad</span>
+          <span class="badge">✅ Responsabilidad</span>
+          <span class="badge">🎯 Ayuda concreta</span>
+          <span class="badge">🌐 Redes humanas</span>
+        </div>
+      </div>
+    </section>
 
-      <textarea
-        id="comment"
-        name="comment"
-        placeholder="Tu comentario"
-        required
-      ></textarea>
+    <!-- Iniciativas -->
+    <section class="section section-alt" id="iniciativas">
+      <div class="container">
+        <h2>Iniciativas</h2>
+        <div class="cards-grid">
 
-      <button type="submit">Enviar</button>
-    </form>
+          <article class="card">
+            <span class="card-status active">Activa</span>
+            <h3>Cartas por la paz</h3>
+            <p>Personas que estudiaron o trabajaron fuera de Cuba escriben a antiguos tutores, profesores, jefes de grupo, colegas o instituciones para pedir apoyo a la paz, la diplomacia y la desescalada.</p>
+            <p class="card-objective"><strong>Objetivo:</strong> Activar redes académicas y profesionales internacionales para promover una posición clara contra una posible guerra.</p>
+            <a href="#cartas-por-la-paz" class="btn btn-primary btn-sm">Participar</a>
+          </article>
 
-    <div id="message"></div>
+          <article class="card">
+            <span class="card-status prep">En preparación</span>
+            <h3>Red de apoyo humanitario</h3>
+            <p>Una iniciativa para conectar personas, instituciones y recursos que puedan ayudar de forma concreta a familias y comunidades cubanas.</p>
+            <p class="card-objective"><strong>Objetivo:</strong> Organizar canales confiables de ayuda, cooperación y acompañamiento.</p>
+            <a href="#participar" class="btn btn-secondary btn-sm">Participar</a>
+          </article>
+
+          <article class="card">
+            <span class="card-status volunteers">Necesita voluntarios</span>
+            <h3>Red académica y profesional</h3>
+            <p>Una red de cubanos y aliados con vínculos académicos, científicos, técnicos, culturales y profesionales.</p>
+            <p class="card-objective"><strong>Objetivo:</strong> Convertir relaciones personales e institucionales en acciones útiles para Cuba.</p>
+            <a href="#participar" class="btn btn-secondary btn-sm">Participar</a>
+          </article>
+
+          <article class="card">
+            <span class="card-status prep">En preparación</span>
+            <h3>Voces por Cuba</h3>
+            <p>Una iniciativa para amplificar mensajes de paz, ayuda humanitaria y diálogo desde la diáspora.</p>
+            <p class="card-objective"><strong>Objetivo:</strong> Construir una voz cívica, plural y responsable.</p>
+            <a href="#participar" class="btn btn-secondary btn-sm">Participar</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Cartas por la paz -->
+    <section class="section" id="cartas-por-la-paz">
+      <div class="container">
+        <h2>Cartas por la paz</h2>
+        <p class="section-text">Muchos cubanos han estudiado, trabajado o investigado en universidades, centros científicos, organizaciones e instituciones fuera de Cuba. Esos vínculos humanos pueden tener valor en momentos críticos. Esta iniciativa invita a escribir cartas personales a tutores, profesores, jefes de grupo, colegas y contactos institucionales para pedirles que apoyen públicamente la paz, la diplomacia y la desescalada.</p>
+
+        <ol class="steps-list">
+          <li>Identifica a una persona o institución con la que tengas un vínculo real.</li>
+          <li>Personaliza una carta breve y respetuosa.</li>
+          <li>Pide apoyo a la paz, la diplomacia y la desescalada.</li>
+          <li>Comparte la iniciativa con otras personas de la diáspora.</li>
+          <li>Déjanos tu email para coordinar próximos pasos.</li>
+        </ol>
+
+        <blockquote class="callout">
+          "Tu voz personal puede abrir una puerta. Una carta bien escrita, desde el respeto y la memoria compartida, puede ayudar a mover conciencia."
+        </blockquote>
+
+        <a href="#participar" class="btn btn-primary">Quiero participar en Cartas por la paz</a>
+      </div>
+    </section>
+
+    <!-- Participar (Formulario) -->
+    <section class="section section-alt" id="participar">
+      <div class="container">
+        <h2>Participar</h2>
+        <p class="section-text">Déjanos tu email y cuéntanos cómo quieres participar. Nos pondremos en contacto contigo.</p>
+
+        <form id="signup-form" class="form" novalidate>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Tu email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="initiative">Iniciativa</label>
+            <select id="initiative" name="initiative">
+              <option value="Participar en general">Participar en general</option>
+              <option value="Cartas por la paz">Cartas por la paz</option>
+              <option value="Red de apoyo humanitario">Red de apoyo humanitario</option>
+              <option value="Red académica y profesional">Red académica y profesional</option>
+              <option value="Voces por Cuba">Voces por Cuba</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="comment">Comentario *</label>
+            <textarea id="comment" name="comment" placeholder="Cuéntanos cómo quieres participar o deja tu comentario" required></textarea>
+          </div>
+
+          <div class="form-group form-check">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label for="consent">Acepto que Diaspora4Cuba me contacte sobre esta iniciativa. *</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submit-btn">Enviar</button>
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p class="section-text">Si quieres ayudar a organizar iniciativas, conectar redes o proponer una acción concreta, déjanos tu email y nos pondremos en contacto.</p>
+        <a href="#participar" class="btn btn-primary">Ir al formulario</a>
+      </div>
+    </section>
+
   </main>
 
-  <script>
-    const form = document.getElementById("signature-form");
-    const message = document.getElementById("message");
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>Diaspora4Cuba</strong>
+        <p>Red cívica de la diáspora cubana por la paz, el diálogo y la ayuda concreta.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#iniciativas">Iniciativas</a>
+        <a href="#participar">Participar</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year"></span> Diaspora4Cuba</p>
+    </div>
+  </footer>
 
-    const endpoint = "https://bykqlmcjoatqylmusjav.supabase.co/functions/v1/submit-signature";
-
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      message.textContent = "Enviando...";
-
-      const email = document.getElementById("email").value.trim();
-      const comment = document.getElementById("comment").value.trim();
-
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ email, comment })
-        });
-
-        const result = await response.json();
-
-        if (!response.ok || !result.ok) {
-          throw new Error(result.error || "No se pudo enviar el formulario");
-        }
-
-        message.textContent = "Gracias. Tu comentario fue recibido.";
-        form.reset();
-      } catch (error) {
-        message.textContent = "Error enviando el formulario. Intenta de nuevo.";
-        console.error(error);
-      }
-    });
-  </script>
 </body>
 </html>
